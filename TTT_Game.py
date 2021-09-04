@@ -14,8 +14,16 @@ combo_indices = [
     [4,8,12,6,20]
 ]
 EMPTY_SIGN = '.'
-CPU_SIGN = 'X'
-USER_SIGN = 'O'
+N = input("Choose X or O:  ")
+t = 0
+if N == "X":
+    USER_SIGN, CPU_SIGN = 'X', 'O'
+    t=1
+elif N == "O":
+    USER_SIGN, CPU_SIGN = 'O', 'X'
+    t=1
+else:
+    print("Choose only character X or O")
 def print_board(board):
     print(" ")
     print(' '.join(board[:5]))
@@ -59,4 +67,5 @@ def game_over():
         empty_cell_count = sum(1 for cell in board if cell == EMPTY_SIGN)
     print('Game has been ended.')
     print('Congrats you won ;)')
-game_over()
+if t==1:
+    game_over()
